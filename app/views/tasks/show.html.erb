@@ -1,2 +1,11 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h1><%= @task.task.titleize %></h1>
+
+<h2>
+  <%= tick(@task.done?) %> - <%= @task.task.titleize %> <%= prety_task(@task) %>
+  <%= @task.description %>
+</h2>
+
+<%= link_to "Home", tasks_path %>
+<%= link_to "Destroy the task", task_path, method: :delete %>
+<%= link_to "Update the task", edit_task_path %>
+

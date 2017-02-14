@@ -1,2 +1,14 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<h1>Todo:</h1>
+
+<ol>
+  <% @tasks.each do |t|  %>
+    <li>
+      <%= tick(t.done?) %> - <%= link_to t.task.titleize, task_path(t.id) %> <%= prety_task(t) %>
+      <%= t.description %> <%= link_to "delete", task_path(t.id), method: :delete%>
+      <%= link_to "update", edit_task_path(t.id) %>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to "Add a task", new_task_path%>
+

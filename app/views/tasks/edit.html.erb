@@ -1,2 +1,12 @@
-<h1>Tasks#edit</h1>
-<p>Find me in app/views/tasks/edit.html.erb</p>
+<h1>Edit task: <%= @task.task %></h1>
+
+<%= form_for(@task) do |f| %>
+  <%= f.text_field :task, placeholder:"Task Name" %>
+  <%= f.text_field :description, placeholder:"Task Descritpion" %>
+  <%= f.label "Task Done:" %>
+  <%= f.check_box :done %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Home", tasks_path %>
+
